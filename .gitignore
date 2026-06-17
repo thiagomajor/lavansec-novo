@@ -1,0 +1,22 @@
+# Sistema operacional
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editores
+.vscode/
+.idea/
+*.swp
+*~
+
+# Build / temporários
+_tmp*/
+.playwright-mcp/
+*.log
+
+# Node (caso adicione tooling depois)
+node_modules/
+npm-debug.log*
+
+# Não versionar imagens-fonte do folder (ficam fora do repo)
+# As imagens usadas pelo site estão em assets/img/ e DEVEM ser versionadas.
