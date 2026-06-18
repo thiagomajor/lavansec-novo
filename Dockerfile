@@ -10,4 +10,5 @@ COPY index.html maquinas.html mercado.html sobre.html /usr/share/nginx/html/
 COPY assets/ /usr/share/nginx/html/assets/
 
 EXPOSE 80
-HEALTHCHECK CMD wget -qO- http://localhost/ >/dev/null 2>&1 || exit 1
+# Sem HEALTHCHECK: o nginx roda em foreground como PID 1 e o Easypanel monitora pelo domínio.
+# (O wget do busybox/Alpine não interpreta bem flags combinadas, o que marcava o container como unhealthy.)
