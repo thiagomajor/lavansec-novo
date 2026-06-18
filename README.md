@@ -6,18 +6,18 @@ foi alterado** — esta é uma pasta independente.
 
 ## O que mudou nesta versão
 - Identidade industrial-editorial escura (tokens oficiais Opção B: laranja, verde escuro, menta).
-- Todo o conteúdo novo do **folder oficial Speed Queen / Alliance (jun/2025)**: mercado, autoridade da
-  marca, linha de equipamentos com foto, plataforma Insights, comparação de classes de ativos.
-- Bloco **"Números Speed Queen"** (simulação de referência do fabricante) claramente rotulado como
+- Todo o conteúdo novo do **folder oficial do fabricante (jun/2025)**: mercado, autoridade da
+  marca, linha de equipamentos com foto, gestão remota 24h, comparação de classes de ativos.
+- Bloco **"Números fabricante líder mundial"** (simulação de referência do fabricante) claramente rotulado como
   referência — **os valores de investimento/retorno/faturamento da Lavansec não foram alterados**.
 
 ## Estrutura
 ```
 NOVO-Lavan/
 ├── index.html        Landing de captação de franqueado (página principal)
-├── maquinas.html     Linha de equipamentos Speed Queen
+├── maquinas.html     Linha de equipamentos fabricante líder mundial
 ├── mercado.html      Dados de mercado (Sebrae, ANEL, ABRALAV)
-├── sobre.html        A marca Lavansec + Alliance/Speed Queen
+├── sobre.html        A marca Lavansec + fabricante líder mundial/fabricante líder mundial
 ├── assets/
 │   ├── css/novolavan.css
 │   ├── js/novolavan.js
@@ -70,7 +70,7 @@ git push -u origin main
 ```
 
 ## Pendências / próximos passos
-- [ ] Trocar as imagens de `assets/img/maquinas/` por **renders oficiais em alta** da Speed Queen.
-- [ ] Validar com o Thiago se os formatos Lavansec ou os números Speed Queen vão para a versão final.
+- [ ] Trocar as imagens de `assets/img/maquinas/` por **renders oficiais em alta** da fabricante líder mundial.
+- [ ] Validar com o Thiago se os formatos Lavansec ou os números fabricante líder mundial vão para a versão final.
 - [ ] Revisão jurídica das projeções antes de uso oficial (COF — Lei 13.966/2019).
 - [ ] Conferir endereços atualizados das unidades.
