@@ -6,7 +6,7 @@ FROM nginx:1.27-alpine
 COPY nginx.conf /etc/nginx/conf.d/default.conf
 
 # Conteúdo do site
-COPY index.html maquinas.html mercado.html sobre.html /usr/share/nginx/html/
+COPY index.html maquinas.html mercado.html sobre.html favicon.svg /usr/share/nginx/html/
 COPY assets/ /usr/share/nginx/html/assets/
 
 EXPOSE 80
