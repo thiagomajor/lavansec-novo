@@ -1,76 +1,49 @@
-# NOVO Lavan — versão em avaliação
+# Lavansec — site
 
-Versão **nova** do material web da Lavansec, criada para **comparar lado a lado** com a versão atual
-(`03-Site` / `04-Landing-Franquia`) e ajudar o Thiago a montar a versão final. **Nada da versão antiga
-foi alterado** — esta é uma pasta independente.
-
-## O que mudou nesta versão
-- Identidade industrial-editorial escura (tokens oficiais Opção B: laranja, verde escuro, menta).
-- Todo o conteúdo novo do **folder oficial do fabricante (jun/2025)**: mercado, autoridade da
-  marca, linha de equipamentos com foto, gestão remota 24h, comparação de classes de ativos.
-- Bloco **"Números fabricante líder mundial"** (simulação de referência do fabricante) claramente rotulado como
-  referência — **os valores de investimento/retorno/faturamento da Lavansec não foram alterados**.
+Site institucional da **Lavansec**, rede de lavanderias self-service em Guarulhos/SP.
+Site estático (HTML + CSS + JS), servido por nginx em container (deploy no EasyPanel).
+Domínio: **www.lavansec.com.br**
 
 ## Estrutura
+
 ```
-NOVO-Lavan/
-├── index.html        Landing de captação de franqueado (página principal)
-├── maquinas.html     Linha de equipamentos fabricante líder mundial
-├── mercado.html      Dados de mercado (Sebrae, ANEL, ABRALAV)
-├── sobre.html        A marca Lavansec + fabricante líder mundial/fabricante líder mundial
+lavansec-novo/
+├── index.html        Home (cliente): como funciona, por que, unidades, faixa franquia
+├── unidades.html     As 5 unidades com endereço, mapa e "como chegar / avaliar no Google"
+├── franquia.html     Franquia (resumida): por que investir + CTA
 ├── assets/
-│   ├── css/novolavan.css
-│   ├── js/novolavan.js
-│   └── img/maquinas/  (extraídas do folder — trocar por renders oficiais quando possível)
-├── Dockerfile        nginx estático (deploy)
+│   ├── css/site.css  Tema claro (cores da marca)
+│   └── js/site.js    Nav, menu mobile, scroll reveal
+├── favicon.svg
+├── Dockerfile        nginx estático
 ├── nginx.conf
-└── README.md
+└── docs/superpowers/specs/  Documento de design (fonte da verdade dos dados)
 ```
 
+## Dados das unidades (fonte da verdade)
+
+5 unidades em Guarulhos/SP, abertas **todos os dias das 7h às 23h**, sabão OMO + amaciante
+Comfort inclusos, pagamento PIX/débito/crédito. Endereços, place_ids do Google e links de
+avaliação estão em `docs/superpowers/specs/2026-06-23-lavansec-site-cliente-design.md`.
+
+> **Preços:** por decisão do negócio, o site **não exibe preços** (evita comparação entre
+> unidades). O valor é informado por unidade via WhatsApp.
+
+## Avaliações do Google (pendente)
+
+Cada unidade já tem o botão "Avaliar no Google" funcionando. As **notas/estrelas** ainda não
+foram inseridas — em cada card de unidade (em `index.html` e `unidades.html`) há um bloco
+comentado `<!-- NOTA GOOGLE: ... -->`. Para exibir a nota, descomente o `<div class="gscore">`
+e preencha a nota e a quantidade de avaliações.
+
 ## Ver localmente
+
 ```bash
-cd NOVO-Lavan
 python -m http.server 8080
 # abrir http://localhost:8080
 ```
 
-## Subir no Easypanel
+## Deploy (EasyPanel)
 
-Repositório sugerido: **`lavansec-novo`**
-
-> ⚠️ **Estrutura:** suba o **conteúdo de dentro** desta pasta para a **raiz** do repositório —
-> o `Dockerfile`, `index.html`, `nginx.conf` e `assets/` precisam ficar na raiz, **não** dentro de
-> uma subpasta `NOVO-Lavan/`. Caso contrário o Easypanel não encontra o Dockerfile.
->
-> Raiz do repo deve ficar assim:
-> ```
-> lavansec-novo/
-> ├── Dockerfile
-> ├── nginx.conf
-> ├── index.html
-> ├── maquinas.html · mercado.html · sobre.html
-> ├── assets/
-> └── README.md · .gitignore
-> ```
-
-1. Crie o repositório `lavansec-novo` no GitHub e suba o conteúdo desta pasta na raiz.
-2. No Easypanel: **App → Source = repositório `lavansec-novo` → Build = Dockerfile**.
-3. **Porta interna 80**. Configure o domínio/box desejado.
-4. Deploy. O site é 100% estático — sobe em segundos.
-
-### Subir via linha de comando (opcional)
-```bash
-cd NOVO-Lavan
-git init
-git add .
-git commit -m "NOVO Lavan — versão inicial"
-git branch -M main
-git remote add origin https://github.com/<seu-usuario>/lavansec-novo.git
-git push -u origin main
-```
-
-## Pendências / próximos passos
-- [ ] Trocar as imagens de `assets/img/maquinas/` por **renders oficiais em alta** da fabricante líder mundial.
-- [ ] Validar com o Thiago se os formatos Lavansec ou os números fabricante líder mundial vão para a versão final.
-- [ ] Revisão jurídica das projeções antes de uso oficial (COF — Lei 13.966/2019).
-- [ ] Conferir endereços atualizados das unidades.
+App → Source = repositório `lavansec-novo` → Build = Dockerfile → porta interna **80**.
+O site é 100% estático.

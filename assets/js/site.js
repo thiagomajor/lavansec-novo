@@ -1,11 +1,11 @@
-/* NOVO LAVAN — interações */
+/* LAVANSEC — site do cliente · interações */
 (function(){
   'use strict';
 
   // Nav: fundo ao rolar
   var nav = document.getElementById('nav');
   var onScroll = function(){
-    if(nav) nav.classList.toggle('scrolled', window.scrollY > 30);
+    if(nav) nav.classList.toggle('scrolled', window.scrollY > 24);
   };
   onScroll();
   window.addEventListener('scroll', onScroll, {passive:true});
@@ -20,22 +20,19 @@
     });
   }
 
-  // Scroll reveal + gauge
-  var io = new IntersectionObserver(function(entries){
-    entries.forEach(function(e){
-      if(e.isIntersecting){
-        e.target.classList.add('in');
-        if(e.target.id === 'gauge') e.target.classList.add('on');
-        io.unobserve(e.target);
-      }
-    });
-  }, {threshold:0.16, rootMargin:'0px 0px -8% 0px'});
+  // Scroll reveal
+  if('IntersectionObserver' in window){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }
+      });
+    }, {threshold:0.14, rootMargin:'0px 0px -8% 0px'});
+    document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
+  } else {
+    document.querySelectorAll('.reveal').forEach(function(el){ el.classList.add('in'); });
+  }
 
-  document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
-  var gauge = document.getElementById('gauge');
-  if(gauge) io.observe(gauge);
-
-  // Ano dinâmico (caso exista marcador)
+  // Ano dinâmico
   document.querySelectorAll('[data-year]').forEach(function(el){
     el.textContent = new Date().getFullYear();
   });
