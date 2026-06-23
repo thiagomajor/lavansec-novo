@@ -359,9 +359,35 @@ footer a:hover{color:var(--orange)}
 .faqlist .ans{padding:0 1.4rem 1.25rem;color:var(--fg-dim);font-size:.97rem;line-height:1.65}
 .faqlist .ans p+p{margin-top:.7rem}
 
+/* ---------- Em breve / Novidade ---------- */
+.soon-card{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(28px,5vw,56px);align-items:center;
+  background:var(--surface);border:1px solid var(--line);border-radius:calc(var(--r) + 6px);
+  padding:clamp(1.8rem,4vw,3.4rem);position:relative;overflow:hidden;box-shadow:var(--shadow)}
+.soon-card::before{content:"";position:absolute;inset:0;z-index:0;background:
+  radial-gradient(640px 380px at 94% 6%,rgba(255,106,26,.16),transparent 60%),
+  radial-gradient(540px 380px at 0% 100%,rgba(15,163,127,.12),transparent 55%)}
+.soon-card>*{position:relative;z-index:1}
+.soon-badge{display:inline-flex;align-items:center;gap:.55rem;font-family:var(--display);font-weight:700;
+  font-size:.76rem;letter-spacing:.14em;text-transform:uppercase;color:var(--orange-deep);
+  background:rgba(255,106,26,.12);padding:.42rem .9rem;border-radius:100px;margin-bottom:1.3rem}
+.soon-badge .pulse{position:relative;width:9px;height:9px;border-radius:50%;background:var(--orange)}
+.soon-badge .pulse::after{content:"";position:absolute;inset:0;border-radius:50%;background:var(--orange);animation:soonpulse 1.8s ease-out infinite}
+@keyframes soonpulse{0%{transform:scale(1);opacity:.7}100%{transform:scale(3.4);opacity:0}}
+.soon-card h2{font-family:var(--display);font-size:clamp(1.7rem,4vw,2.7rem);font-weight:900;letter-spacing:-.03em;color:var(--ink);line-height:1.08}
+.soon-card h2 em{font-style:normal;color:var(--orange)}
+.soon-card p{color:var(--fg-dim);margin-top:1rem;max-width:52ch}
+.soon-where{display:flex;align-items:center;gap:.85rem;margin-top:1.5rem;padding:1rem 1.2rem;background:var(--surface-2);border:1px solid var(--line);border-radius:14px}
+.soon-where .ic{font-size:1.5rem;flex:none}
+.soon-where b{display:block;font-family:var(--display);font-weight:700;color:var(--ink)}
+.soon-where span{color:var(--fg-dim);font-size:.92rem}
+.soon-card .hero-cta{margin-top:1.6rem}
+.soon-visual{display:grid;align-content:center}
+.drum--soon .drum-label{color:var(--orange)}
+
 /* ---------- Responsivo ---------- */
 @media(max-width:1000px){
-  .hero-grid,.split,.franchise .fr-grid,.cf-grid{grid-template-columns:1fr}
+  .hero-grid,.split,.franchise .fr-grid,.cf-grid,.soon-card{grid-template-columns:1fr}
+  .soon-visual{order:-1}
   .urow,.urow:nth-child(even){grid-template-columns:1fr}
   .urow:nth-child(even) .mapwrap{order:0}
   .urow .mapwrap,.urow .map{min-height:240px}
