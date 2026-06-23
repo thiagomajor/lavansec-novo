@@ -359,7 +359,7 @@ footer a:hover{color:var(--orange)}
 .faqlist .ans{padding:0 1.4rem 1.25rem;color:var(--fg-dim);font-size:.97rem;line-height:1.65}
 .faqlist .ans p+p{margin-top:.7rem}
 
-/* ---------- Em breve / Novidade ---------- */
+/* ---------- Em breve / Novidade (máquina 2x) ---------- */
 .soon-card{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(28px,5vw,56px);align-items:center;
   background:var(--surface);border:1px solid var(--line);border-radius:calc(var(--r) + 6px);
   padding:clamp(1.8rem,4vw,3.4rem);position:relative;overflow:hidden;box-shadow:var(--shadow)}
@@ -383,6 +383,17 @@ footer a:hover{color:var(--orange)}
 .soon-card .hero-cta{margin-top:1.6rem}
 .soon-visual{display:grid;align-content:center}
 .drum--soon .drum-label{color:var(--orange)}
+
+/* ---------- Logo da marca ---------- */
+.brand-logo{height:42px;width:auto;border-radius:10px;display:block}
+.fbrand img{height:54px;width:auto;border-radius:12px;display:block}
+
+/* ---------- Unidade em breve ---------- */
+.unit--soon{border:1px dashed var(--orange);background:linear-gradient(180deg,rgba(255,106,26,.05),var(--surface))}
+.unit--soon .pin,.urow.unit--soon .pin{color:var(--orange-deep)}
+.soon-tag{display:inline-flex;align-items:center;gap:.5rem;font-family:var(--display);font-weight:700;font-size:.82rem;color:var(--orange-deep);background:rgba(255,106,26,.12);border-radius:100px;padding:.4rem .85rem;align-self:flex-start}
+.soon-tag .pulse{position:relative;width:8px;height:8px;border-radius:50%;background:var(--orange)}
+.soon-tag .pulse::after{content:"";position:absolute;inset:0;border-radius:50%;background:var(--orange);animation:soonpulse 1.8s ease-out infinite}
 
 /* ---------- Responsivo ---------- */
 @media(max-width:1000px){
