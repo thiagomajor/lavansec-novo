@@ -336,7 +336,7 @@ footer a:hover{color:var(--orange)}
 .amen-item span{color:var(--fg-dim);font-size:.9rem}
 
 /* ---------- Depoimentos ---------- */
-.rev-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.1rem}
+.rev-grid{display:grid;grid-template-columns:repeat(2,minmax(0,400px));justify-content:center;gap:1.1rem}
 .rev{display:flex;flex-direction:column;gap:.9rem;background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:1.6rem;box-shadow:var(--shadow-sm);transition:transform .4s var(--ease),box-shadow .4s}
 .rev:hover{transform:translateY(-5px);box-shadow:var(--shadow)}
 .rev .stars{color:#FFB400;letter-spacing:.08em;font-size:1.05rem}
